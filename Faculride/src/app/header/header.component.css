@@ -1,0 +1,61 @@
+header{
+  width: 100%;
+  background-color: skyblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.titulosite{
+  display: flex;
+  background-color: skyblue;
+}
+.logo-imagem{
+  display: flex;
+  margin-left: 30px;
+}
+
+.nometitulo {
+  display: flex;
+  margin-right: 700px;
+  margin-left: 1px;
+  margin-top: 35px;
+  color: rgb(255, 252, 252);
+  text-decoration: none;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+.nometitulo a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit; /* Mantém a cor do texto do elemento pai */
+}
+
+
+
+.menu {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 35px;
+
+}
+
+.menu li{
+  display: inline-block;
+  margin: 0 10px;
+
+}
+
+.menu li a{
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 20px;
+}
+
+.menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
