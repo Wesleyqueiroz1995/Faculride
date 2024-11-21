@@ -100,7 +100,35 @@ h3 {
   border-radius: 10px;
   width: 300px;
   text-align: center;
+
 }
+.card {
+  max-width: 400px; /* Largura do card */
+  height: 350px;  /* Altura do card reduzida */
+  overflow: hidden;  /* Esconde o conteúdo excedente */
+  margin: 0 auto;  /* Centraliza o card */
+  margin-bottom: 5px;
+  margin-top: 10px;
+
+
+
+}
+
+.card-img-top {
+  height: 120px; /* Imagem com altura controlada */
+  object-fit: cover; /* Ajusta a imagem sem distorcer */
+}
+
+.card-body {
+
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bolder;
+
+}
+
 
 
 @media (max-width: 768px) {

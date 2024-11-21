@@ -1,23 +1,25 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, Routes } from '@angular/router';  // Importando provideRouter e Routes corretamente
 import { appConfig } from './app/app.config';  // Arquivo de configuração (se existir)
+import {  ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app/app.component';
 import { HomeComponent } from './app/home/home.component';
-import { Router } from '@angular/router';
-import { ProcurarComponent } from './app/procurar/procurar.component';
-import { CaronaComponent } from './app/carona/carona.component';
-// Definindo as rotas
+import { CommonModule } from '@angular/common';
+import { CadastroComponent } from './app/cadastro/cadastro.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },  // Rota inicial
   { path: 'home', component: HomeComponent },  // Rota para Home
-  {path : 'procurar', component: ProcurarComponent}
+  { path: '', component: CadastroComponent },
+
 
 
 ];
 
-// Inicializando a aplicação com as rotas
 bootstrapApplication(AppComponent, {
   providers: [
+  
+    (ReactiveFormsModule),
     provideRouter(routes),  // Passando as rotas para o roteador
     ...appConfig.providers || [],  // Se houver configuração adicional no appConfig
   ],
