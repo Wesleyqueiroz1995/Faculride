@@ -1,0 +1,30 @@
+.register-section {
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 50px auto;
+}
+.register-section input,
+.register-section select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.register-section button {
+  width: 100%;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.driver-fields {
+  display: none;
+}

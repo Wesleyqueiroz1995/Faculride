@@ -1,0 +1,51 @@
+
+
+<section class="register-section">
+  <h2>Vamos começar criando sua conta</h2>
+
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <select formControlName="tipoUsuario" (change)="alternarCamposMotorista()">
+      <option value="passageiro">Passageiro</option>
+      <option value="motorista">Motorista</option>
+    </select>
+
+    <input type="text" formControlName="nome" placeholder="Nome" />
+    <input type="text" formControlName="sobrenome" placeholder="Sobrenome" />
+    <input type="email" formControlName="email" placeholder="Email" />
+    <input type="tel" formControlName="telefone" placeholder="Telefone" />
+    <div *ngIf="cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched">
+      <small style="color: red;">O telefone deve ter 10 ou 11 dígitos (apenas números).</small>
+    </div>
+    <input type="text" formControlName="endereco" placeholder="Endereço" />
+
+    <select formControlName="fatec">
+      <option value="" disabled selected>Sua Fatec</option>
+      <option value="FATEC Sorocaba">FATEC Sorocaba</option>
+      <option value="FATEC Votorantim">FATEC Votorantim</option>
+    </select>
+
+    <input type="text" formControlName="ra" placeholder="Seu R.A" />
+    <select formControlName="genero">
+      <option value="" disabled selected>Gênero</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Feminino">Feminino</option>
+      <option value="Prefiro não me identificar">Prefiro não me identificar</option>
+    </select>
+
+    <input type="date" formControlName="dataNascimento" />
+
+    <div *ngIf="isMotorista" class="campos-motorista">
+      <input type="text" formControlName="cnh" placeholder="CNH" />
+      <input type="text" formControlName="modeloCarro" placeholder="Modelo do carro" />
+      <select formControlName="anoCarro">
+        <option value="" disabled selected>Ano do carro</option>
+        <option *ngFor="let ano of [2020, 2021, 2022, 2023]">{{ ano }}</option>
+      </select>
+      <input type="text" formControlName="placa" placeholder="Placa" />
+
+
+    </div>
+
+    <button type ="submit" >Criar Conta</button>
+  </form>
+</section>

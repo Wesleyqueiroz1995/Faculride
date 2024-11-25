@@ -1,0 +1,41 @@
+
+
+.containerimg {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color:#eef0f3;
+
+
+}
+
+.profile {
+  margin: 20px;
+  text-align: center;
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+}
+
+.profile h2 {
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+.dev1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+.dev2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}

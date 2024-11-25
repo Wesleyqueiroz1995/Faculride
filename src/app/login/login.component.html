@@ -1,0 +1,17 @@
+<section class="login-section">
+  <h2>Faça seu login</h2>
+  <input type="text" (ngModel)="email" placeholder="Informe seu E-mail ou telefone" />
+  <input type="password" (ngModel)="password" placeholder="Digite sua senha" />
+  <button (click)="login()">Login</button>
+  <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
+  <button *ngIf="loginAttempts >= 2" (click)="showRecoverPassword()">Esqueci minha senha</button>
+  <div *ngIf="showRecoverPasswordSection">
+    <input type="text" (ngModel)="recoverEmail" placeholder="Informe seu E-mail" />
+    <button (click)="sendRecoverEmail()">Enviar</button>
+  </div>
+  <p *ngIf="recoverMsg" class="success">{{ recoverMsg }}</p>
+  <p>ou</p>
+  <button>Continuar com Google</button>
+  <button>Continuar com Facebook</button>
+  <p>Ainda não tem cadastro? <a routerLink="/cadastro">Cadastrar</a></p>
+</section>

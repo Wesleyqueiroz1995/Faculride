@@ -1,0 +1,146 @@
+.carona {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.mapa {
+
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-left: 20px;
+
+}
+
+.carona-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 40%;
+  margin-left: 50px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.procurar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  flex: 1;
+
+h3 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+.input-box {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.footer {
+  flex: auto;
+  flex: 100%;
+}
+
+
+
+.div3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+  .div3 button {
+  align-items: center;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  padding: 5px 30px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+
+}
+.card {
+  max-width: 400px; /* Largura do card */
+  height: 350px;  /* Altura do card reduzida */
+  overflow: hidden;  /* Esconde o conteúdo excedente */
+  margin: 0 auto;  /* Centraliza o card */
+  margin-bottom: 5px;
+  margin-top: 10px;
+
+
+
+}
+
+.card-img-top {
+  height: 120px; /* Imagem com altura controlada */
+  object-fit: cover; /* Ajusta a imagem sem distorcer */
+}
+
+.card-body {
+
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bolder;
+
+}
+
+
+
+@media (max-width: 768px) {
+  .carona {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .carona-container {
+      width:70%;
+      margin-left: 10px;
+      margin-right: 20px;
+      padding: 10px;
+  }
+
+  .carona-usuarios {
+      width: 100%;
+      margin-left: 0;
+  }
+
+  .mapa {
+      margin-top: 100px;
+      margin-right: 100px;
+  }
+
+@media (max-width: 150px) {
+  .carona-item img {
+      max-width: 150px;
+  }
+
+  .input-box {
+      padding: 8px;
+      margin: 8px 0;
+
+  }
+}
+
+}
+
