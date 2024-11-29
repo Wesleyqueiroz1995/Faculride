@@ -1,0 +1,41 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Breno",
+      "distancia": "0.5 KM",
+      "saida": "18:30",
+      "volta": "22:40",
+      "custo": "50R$/MÊS",
+      "imagem": "assets/breno.jpeg"
+    },
+    {
+      "id": 2,
+      "nome": "Wendel",
+      "distancia": "1 KM",
+      "saida": "18:10",
+      "volta": "22:40",
+      "custo": "25R$/MÊS",
+      "imagem": "assets/wendel.jpeg"
+    },
+    {
+      "id": 3,
+      "nome": "Wesley",
+      "distancia": "5 KM",
+      "saida": "18:45",
+      "volta": "22:40",
+      "custo": "30R$/MÊS",
+      "imagem": "assets/wesley.jpeg"
+    },
+    {
+      "id": 4,
+      "nome": "Gabriel",
+      "distancia": "7 KM",
+      "saida": "18:20",
+      "volta": "22:40",
+      "custo": "55R$/MÊS",
+      "imagem": "assets/gabriel.jpeg"
+    }
+
+  ]
+}

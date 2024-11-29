@@ -1,8 +1,26 @@
 .carona {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
+
+.carona-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.procurar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
 
 .mapa {
 
@@ -12,135 +30,120 @@
 
 }
 
-.carona-container {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  width: 40%;
-  margin-left: 50px;
-  flex: 1;
-  min-width: 300px;
-}
-
-.procurar-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  margin-left: 0;
-  flex: 1;
-
-h3 {
-  margin-top: 30px;
-  text-align: center;
-}
-
-
-.input-box {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.footer {
-  flex: auto;
-  flex: 100%;
-}
-
-
-
+/* Botão de Procurar */
 .div3 {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   text-align: center;
-
 }
 
-  .div3 button {
-  align-items: center;
+.div3 button {
   background-color: skyblue;
   color: white;
   border: none;
-  padding: 5px 30px;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 1.5em;
+  padding: 10px 20px;
+  font-size: 1.2em;
   border-radius: 10px;
-  width: 300px;
-  text-align: center;
-
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top:10px ;
 }
-.card {
-  max-width: 400px; /* Largura do card */
-  height: 350px;  /* Altura do card reduzida */
-  overflow: hidden;  /* Esconde o conteúdo excedente */
-  margin: 0 auto;  /* Centraliza o card */
-  margin-bottom: 5px;
+
+.div3 button:hover {
+  background-color: deepskyblue;
+}
+
+h3 {
+  text-align: center;
   margin-top: 10px;
 
 
+}
 
+
+
+/* Cards de Usuários */
+.carona-usuarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 calc(33.33% - 20px); /* Responsividade para cards */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .card-img-top {
-  height: 120px; /* Imagem com altura controlada */
-  object-fit: cover; /* Ajusta a imagem sem distorcer */
+  height: 120px;
+  object-fit: cover;
 }
 
 .card-body {
-
-
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
   text-align: center;
-  margin: 10px 0;
-  font-weight: bolder;
+}
 
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 5px;
+}
+
+.card.expanded {
+  width: 50px; /* Tamanho aumentado para 18rem, por exemplo */
+  transform: scale(1.1); /* Aumento do card */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  transition: width 0.3s ease, transform 0.3s ease; /* Animação suave */
+}
+
+.combinar{
+  background-color: skyblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top:10px ;
 }
 
 
 
+
+/* Responsividade */
 @media (max-width: 768px) {
   .carona {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .carona-container {
-      width:70%;
-      margin-left: 10px;
-      margin-right: 20px;
-      padding: 10px;
-  }
-
-  .carona-usuarios {
-      width: 100%;
-      margin-left: 0;
+    width: 90%;
   }
 
   .mapa {
-      margin-top: 100px;
-      margin-right: 100px;
+    margin: 0;
+    max-width: 90%;
   }
 
-@media (max-width: 150px) {
-  .carona-item img {
-      max-width: 150px;
-  }
 
-  .input-box {
-      padding: 8px;
-      margin: 8px 0;
 
-  }
-}
+    .card.expanded {
+      width: 90%; /* Card expandido ocupa a maior parte da tela em dispositivos móveis */
+    }
 
 }
-

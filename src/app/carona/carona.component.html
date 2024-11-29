@@ -1,63 +1,45 @@
-
 <div class="carona">
   <section class="carona-container">
-      <section class="procurar-container">
-          <input type="text" class="input-box" [(ngModel)]="local"  placeholder="Informe seu local">
-          <input type="text" class="input-box" [(ngModel)]="destino" placeholder="Informe seu destino">
+    <section class="procurar-container">
+      <input type="text" class="input-box" [(ngModel)]="local" placeholder="Informe seu local">
+      <input type="text" class="input-box" [(ngModel)]="destino" placeholder="Informe seu destino">
+    </section>
+    <div class="div3">
+      <button (click)="exibirUsuarios()">Procurar carona</button>
+    </div>
 
-      </section>
-      <div class="div3">
-          <button (click)="exibirUsuarios()">Procurar carona</button>
-      </div>
-    <section *ngIf= "usuariosVisiveis" class = "usuarios">
+    <!-- Exibe os usuários carregados -->
+    <section *ngIf="usuariosVisiveis" class="usuarios">
       <h3 style="font-size: larger;">Caronas próximas ao endereço digitado:</h3>
-
-       <div class="carona-usuarios">
-        <div class="col-md-4">
+      <div class="carona-usuarios row">
+        <!-- Loop pelos usuários para exibir os cards -->
+        <div class="col-md-4 mb-4"
+          *ngFor="let usuario of usuarios; let i = index"
+          (click)="selecionarCard(i)"
+          [class.expanded]="cardSelecionado === i">
           <div class="card" style="width: 12rem;">
-            <img src="/assets/breno.jpeg" class="card-img-top" alt="Breno">
+            <img [src]="usuario.imagem" class="card-img-top" alt="{{ usuario.nome }}">
             <div class="card-body">
-              <h5 class="card-title">Breno</h5>
-              <p class="card-text">DISTÂNCIA: 0,5 KM</p>
-              <p class="card-text">SAÍDA: 18:30</p>
-              <p class="card-text">VOLTA: 22:40</p>
-              <p class="card-text">AJUDA DE CUSTO: 50R$/MÊS</p>
+              <h5 class="card-title">{{ usuario.nome }}</h5>
+              <p class="card-text">DISTÂNCIA: {{ usuario.distancia }}</p>
+              <p class="card-text">SAÍDA: {{ usuario.saida }}</p>
+              <p class="card-text">VOLTA: {{ usuario.volta }}</p>
+              <p class="card-text">AJUDA DE CUSTO: {{ usuario.custo }}</p>
+              <!-- Botão que aparece apenas no card selecionado -->
+
+              <button *ngIf="cardSelecionado === i" class="combinar" (click)="acaoBotao($event, usuario)">
+                combinar carona
+              </button>
             </div>
           </div>
         </div>
-           <!-- Card de Wendel -->
-      <div class="col-md-4">
-        <div class="card" style="width: 12rem;">
-        <img src="/assets/wendel.jpeg" class="card-img-top" alt="Wendel">
-        <div class="card-body">
-          <h5 class="card-title">Wendel</h5>
-          <p class="card-text">DISTÂNCIA: 1 KM</p>
-          <p class="card-text">SAÍDA: 18:10</p>
-          <p class="card-text">VOLTA: 22:40</p>
-          <p class="card-text">AJUDA DE CUSTO: 25R$/MÊS</p>
-        </div>
-       </div>
-          <!-- Card de Wesley -->
-      <div class="col-md-4">
-        <div class="card" style="width: 12rem;">
-          <img src="/assets/wesley.jpeg" class="card-img-top" alt="Wendel">
-          <div class="card-body">
-          <h5 class="card-title">Wesley</h5>
-          <p class="card-text">DISTÂNCIA: 2 KM</p>
-          <p class="card-text">SAÍDA: 18:35</p>
-          <p class="card-text">VOLTA: 22:40</p>
-          <p class="card-text">AJUDA DE CUSTO: 50R$/MÊS</p>
-          </div>
-        </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
   </section>
 
+  <!-- Mapa integrado -->
   <div class="mapa">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d29266.136998416783!2d-47.48311924770434!3d-23.522892895097392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x94c58af10ae9f875%3A0xd93cdc7cc534276f!2sR.%20J%C3%BAlio%20de%20Mesquita%20Filho%20-%20Brg.%20Tobias%2C%20Sorocaba%20-%20SP%2C%2018046-090!3m2!1d-23.5211634!2d-47.474731299999995!4m5!1s0x94c58b72bdd65027%3A0xb94c5e9f90d48401!2sFatec%20Votorantim%2C%20Av.%20Juscelino%20Kubitschek%20de%20Oliveira%2C%20279%20-%20Protestantes%2C%20Votorantim%20-%20SP%2C%2018110-008!3m2!1d-23.531125799999998!2d-47.4493702!5e0!3m2!1spt-BR!2sbr!4v1718839632470!5m2!1spt-BR!2sbr" width="800" height="1400" style="border:0;" allowfullscreen=""loading="lazy" referrerpolicy="no-referrer-when-downgrade">></iframe>
-
-
+    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d29266.136998416783!2d-47.48311924770434!3d-23.522892895097392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x94c58af10ae9f875%3A0xd93cdc7cc534276f!2sR.%20J%C3%BAlio%20de%20Mesquita%20Filho%20-%20Brg.%20Tobias%2C%20Sorocaba%20-%20SP%2C%2018046-090!3m2!1d-23.5211634!2d-47.474731299999995!4m5!1s0x94c58b72bdd65027%3A0xb94c5e9f90d48401!2sFatec%20Votorantim%2C%20Av.%20Juscelino%20Kubitschek%20de%20Oliveira%2C%20279%20-%20Protestantes%2C%20Votorantim%20-%20SP%2C%2018110-008!3m2!1d-23.531125799999998!2d-47.4493702!5e0!3m2!1spt-BR!2sbr!4v1718839632470!5m2!1spt-BR!2sbr"
+      width="800" height="1000" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </div>

@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule,],
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css'],
 })
+
+
+
 export class CadastroComponent {
   cadastroForm: FormGroup;
   isMotorista: boolean = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  )
+   {
     this.cadastroForm = this.fb.group({
       tipoUsuario: ['passageiro', Validators.required],
       nome: ['', Validators.required],
@@ -70,6 +78,7 @@ export class CadastroComponent {
     if (this.cadastroForm.valid) {
       console.log('Formulário enviado:', this.cadastroForm.value);
       alert('Conta criada com sucesso!');
+      this.router.navigate(['/login']);
     } else {
       alert('Por favor, preencha todos os campos obrigatórios.');
       this.checkInvalidFields();

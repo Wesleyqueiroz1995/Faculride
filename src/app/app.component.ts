@@ -1,12 +1,14 @@
 import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
 import { RouterOutlet, provideRouter, Routes } from '@angular/router';
-import { bootstrapApplication } from '@angular/platform-browser';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProcurarComponent } from './procurar/procurar.component';
-import { CaronaComponent } from './carona/carona.component';
+import {  OnInit } from '@angular/core';
+import { UsuariosService } from './services/usuarios.service';
+
+
 
 // Definindo as rotas corretamente
 const routes: Routes = [
@@ -27,8 +29,16 @@ const routes: Routes = [
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'Faculride';
-}
+export class AppComponent implements OnInit {
+  usuarios: any[] = []; // Definindo um array para armazenar os dados dos usuários
 
+  constructor(private usuariosService: UsuariosService) {} // Injetando o serviço
+
+  // Método para buscar os usuários ao inicializar o componente
+  ngOnInit() {
+    this.usuariosService.getUsuarios().subscribe((data) => {
+      this.usuarios = data; // Atribuindo os dados recebidos ao array usuarios
+    });
+  }
+}
 
